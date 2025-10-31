@@ -1,0 +1,76 @@
+"Продукт"
+type Product {
+    id: ID!
+    name: String!
+}
+
+"Деликатес"
+type Delicacy {
+    id: ID!
+    name: String!
+    price: Float!
+    mass: Float!
+    proteins: Float!
+    fats: Float!
+    carbohydrates: Float!
+    kcal: Float!
+    country: String!
+    products: [Product!]!
+    createdAt: String!
+}
+
+"Страница результатов с пагинацией"
+type DelicacyPage {
+    content: [Delicacy!]!
+    pageNumber: Int!
+    pageSize: Int!
+    totalElements: Int!
+    totalPages: Int!
+    last: Boolean!
+}
+
+"Запросы, доступные в API"
+type Query {
+    "Получить список всех продуктов"
+    products: [Product!]!
+
+    "Получить продукт по ID"
+    productById(id: ID!): Product
+
+    "Получить страницу деликатесов (с пагинацией и фильтрацией по стране или продукту)"
+    delicacies(country: String, productId: ID, page: Int = 0, size: Int = 10): DelicacyPage
+
+    "Получить деликатес по ID"
+    delicacyById(id: ID!): Delicacy
+}
+
+"Входные данные для создания или обновления продукта"
+input ProductInput {
+    name: String!
+}
+
+"Входные данные для создания или обновления деликатеса"
+input DelicacyInput {
+    name: String!
+    price: Float!
+    mass: Float!
+    proteins: Float!
+    fats: Float!
+    carbohydrates: Float!
+    kcal: Float!
+    country: String!
+    productIds: [ID!]!
+}
+
+"Типы мутаций (операции изменения данных)"
+type Mutation {
+    # ==== Product ====
+    createProduct(input: ProductInput!): Product
+    updateProduct(id: ID!, input: ProductInput!): Product
+    deleteProduct(id: ID!): ID
+
+    # ==== Delicacy ====
+    createDelicacy(input: DelicacyInput!): Delicacy
+    updateDelicacy(id: ID!, input: DelicacyInput!): Delicacy
+    deleteDelicacy(id: ID!): ID
+}
