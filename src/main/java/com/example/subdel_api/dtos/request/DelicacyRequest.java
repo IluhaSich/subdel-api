@@ -11,7 +11,6 @@ import java.util.List;
  * DTO для создания или обновления деликатеса.
  *
  * @param name название деликатеса
- * @param price цена (в условной валюте)
  * @param mass масса продукта (в граммах)
  * @param proteins количество белков (г на 100 г)
  * @param fats количество жиров (г на 100 г)
@@ -24,10 +23,6 @@ public record DelicacyRequest(
 
         @NotBlank(message = "Название не может быть пустым")
         String name,
-
-        @NotNull(message = "Цена не может быть пустой")
-        @Positive(message = "Цена должна быть положительной")
-        Double price,
 
         @NotNull(message = "Масса не может быть пустой")
         @Positive(message = "Масса должна быть положительной")

@@ -1,6 +1,7 @@
 type Product {
     id: ID!
     name: String!
+    price: Float!
 }
 
 type Delicacy {
@@ -36,11 +37,11 @@ type Query {
 
 input ProductInput {
     name: String!
+    price: Float!
 }
 
 input DelicacyInput {
     name: String!
-    price: Float!
     mass: Float!
     proteins: Float!
     fats: Float!
