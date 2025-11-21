@@ -64,4 +64,13 @@ public class ProductResponse extends RepresentationModel<ProductResponse> {
     public int hashCode() {
         return Objects.hash(super.hashCode(), id, name, price);
     }
+
+    @Override
+    public String toString() {
+        return "ProductResponse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

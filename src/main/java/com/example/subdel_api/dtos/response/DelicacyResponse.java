@@ -155,4 +155,21 @@ public class DelicacyResponse extends RepresentationModel<DelicacyResponse> {
     public int hashCode() {
         return Objects.hash(super.hashCode(), id, name, price, mass, proteins, fats, carbohydrates, kcal, country, products, createdAt);
     }
+
+    @Override
+    public String toString() {
+        return "DelicacyResponse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", mass=" + mass +
+                ", proteins=" + proteins +
+                ", fats=" + fats +
+                ", carbohydrates=" + carbohydrates +
+                ", kcal=" + kcal +
+                ", country='" + country + '\'' +
+                ", products=" + products +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
